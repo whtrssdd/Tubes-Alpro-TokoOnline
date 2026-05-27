@@ -1,4 +1,4 @@
-# Tugas Besar Algoritma Pemrograman - Aplikasi Toko Online (Topik 16)
+# Tugas Besar Algoritma Pemrograman<br>Aplikasi Toko Online (Topik 16)
 
 Repository ini berisi implementasi kode program untuk Tugas Besar mata kuliah **CBK1HAB4 Algoritma Pemrograman** pada Semester Genap 2025/2026. Program ini dikembangkan menggunakan bahasa pemrograman **Go (Golang)** dengan mematuhi seluruh spesifikasi akademik dan aturan penulisan algoritma secara ketat.
 
