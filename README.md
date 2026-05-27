@@ -3,17 +3,13 @@
 Repository ini berisi implementasi kode program untuk Tugas Besar mata kuliah **CBK1HAB4 Algoritma Pemrograman** pada Semester Genap 2025/2026. Program ini dikembangkan menggunakan bahasa pemrograman **Go (Golang)** dengan mematuhi seluruh spesifikasi akademik dan aturan penulisan algoritma secara ketat.
 
 ## 👥 Identitas Mahasiswa
-* **Anggota 1 / NIM:** Ali Andriansyah
-* **Anggota 2 / NIM:** Raka 
+* **Anggota 1:** Ali Andriansyah
+* **Anggota 2:** Raka Satria Hafiz
 * **Program Studi:** S1 Teknologi Informasi
 * **Fakultas:** Informatika, Universitas Telkom
 
----
-
 ## 📝 Deskripsi Aplikasi
 **Aplikasi Toko Online** ini dirancang untuk memfasilitasi pemilik toko (admin) dalam mengelola katalog barang dagangan serta memproses transaksi penjualan dari pembeli secara terstruktur. Aplikasi ini berbasis *Command Line Interface* (CLI) dan mengimplementasikan penyimpanan data berbasis memori lokal menggunakan struktur data array statis.
-
----
 
 ## ✨ Fitur Utama Aplikasi
 
@@ -32,8 +28,6 @@ Repository ini berisi implementasi kode program untuk Tugas Besar mata kuliah **
 4. **Visualisasi Data Terurut**
    * Menampilkan katalog barang dengan dua pilihan mode pengurutan dinamis: berdasarkan ID secara membesar (*Ascending*) atau berdasarkan sisa stok secara mengecil (*Descending*).
 
----
-
 ## 🛠️ Keselarasan Materi Perkuliahan (ALPRO)
 
 Aplikasi ini dibangun murni menggunakan konsep-konsep dasar yang diajarkan dari Pekan 02 hingga Pekan 12:
@@ -49,7 +43,10 @@ Aplikasi ini dibangun murni menggunakan konsep-konsep dasar yang diajarkan dari 
 
 ⚠️ **Kepatuhan Aturan Ketat:** Kode program ini **sama sekali tidak menggunakan** statemen keyword `break` maupun `continue` di dalam seluruh struktur perulangan yang ada.
 
----
+## 🧪 Data Uji (Dummy Data) Otomatis
+Untuk mempermudah proses penilaian dan *testing* oleh asisten/dosen, program ini telah dilengkapi dengan *dummy data* yang di-*hardcode* secara statis di dalam fungsi `main()`. 
+* Terdapat **4 Data Barang** dan **3 Data Transaksi** awal.
+* Pengisian *dummy data* ini dilakukan dengan mengamankan struktur array statis tanpa menggunakan *file eksternal* atau *slice dinamis*, sehingga spesifikasi tugas besar tetap aman 100%. Anda bisa langsung menguji fitur *Sorting*, *Searching*, dan *Approve* sesaat setelah program di-*run*.
 
 ## 🚀 Cara Menjalankan Program
 
