@@ -1,42 +1,60 @@
-# Tubes-Alpro-TokoOnline
+# Tugas Besar Algoritma Pemrograman - Aplikasi Toko Online (Topik 16)
 
-# Tugas Besar Algoritma Pemrograman - Aplikasi Toko Online
+Repository ini berisi implementasi kode program untuk Tugas Besar mata kuliah **CBK1HAB4 Algoritma Pemrograman** pada Semester Genap 2025/2026. Program ini dikembangkan menggunakan bahasa pemrograman **Go (Golang)** dengan mematuhi seluruh spesifikasi akademik dan aturan penulisan algoritma secara ketat.
 
-[cite_start]Repository ini berisi implementasi *source code* untuk Tugas Besar mata kuliah Algoritma Pemrograman (CBK1HAB4)[cite: 1]. [cite_start]Proyek ini disusun sebagai bagian dari pemenuhan tugas di Program Studi Teknologi Informasi, Fakultas Informatika[cite: 2, 3]. 
+## 👥 Identitas Mahasiswa
+* **Anggota 1 / NIM:** Ali Andriansyah
+* **Anggota 2 / NIM:** Raka 
+* **Program Studi:** S1 Teknologi Informasi
+* **Fakultas:** Informatika, Universitas Telkom
 
-[cite_start]Aplikasi yang dikembangkan adalah **Aplikasi Toko Online** (Topik 16) yang ditulis sepenuhnya menggunakan bahasa pemrograman Go (Golang)[cite: 13, 192].
+---
 
-## 👥 Anggota Kelompok
-[cite_start]Tugas ini dikerjakan secara berkelompok[cite: 10]:
-* **Nama:** Ali Andriansyah
-* **NIM:** [Isi NIM Anda di sini]
-* *(Jika Anda memiliki rekan satu kelompok, tambahkan Nama dan NIM-nya di sini)* ## 📝 Deskripsi Aplikasi
-[cite_start]Aplikasi ini dirancang untuk membantu pemilik toko online dalam mengelola data barang dan pembeli secara efisien[cite: 193]. [cite_start]Program berjalan berbasis *Command Line Interface* (CLI) dan dirancang secara modular menggunakan konsep *Subprogram* (Fungsi dan Prosedur)[cite: 35]. Data disimpan secara statis dalam memori selama program berjalan.
+## 📝 Deskripsi Aplikasi
+**Aplikasi Toko Online** ini dirancang untuk memfasilitasi pemilik toko (admin) dalam mengelola katalog barang dagangan serta memproses transaksi penjualan dari pembeli secara terstruktur. Aplikasi ini berbasis *Command Line Interface* (CLI) dan mengimplementasikan penyimpanan data berbasis memori lokal menggunakan struktur data array statis.
 
-## ✨ Fitur Utama
-Sesuai dengan spesifikasi tugas, aplikasi ini mencakup fitur-fitur fungsional berikut:
-1. [cite_start]**Manajemen Barang:** Pemilik toko dapat melakukan penambahan, pengubahan (edit), dan penghapusan data barang yang dijual[cite: 196].
-2. [cite_start]**Pengurutan Data:** Menampilkan data barang secara terurut berdasarkan jumlah stok atau kriteria lain (seperti ID)[cite: 197]. [cite_start]Pengurutan dapat dilakukan secara *ascending* maupun *descending*[cite: 40].
-3. [cite_start]**Persetujuan Transaksi:** Fasilitas bagi pemilik toko untuk melakukan persetujuan ( *approve*) terhadap transaksi penjualan yang masuk[cite: 199].
-4. [cite_start]**Kalkulasi Pendapatan:** Sistem dapat menghitung total uang yang diperoleh dari hasil transaksi[cite: 198].
+---
 
-## 🛠️ Algoritma & Struktur Data
-* [cite_start]**Struktur Data:** Menggunakan implementasi Array statis dan Tipe Bentukan Struktur (`struct`) murni, tanpa *slice* atau *array* dinamis[cite: 37]. 
-* [cite_start]**Pencarian Data (Searching)[cite: 38]:**
-  * *Binary Search*: Diterapkan untuk mencari ID Barang, memanfaatkan efisiensi tinggi pada *array* yang sudah terurut.
-  * *Sequential Search*: Diterapkan untuk mencari ID Transaksi.
-* [cite_start]**Pengurutan Data (Sorting)[cite: 39]:**
-  * *Insertion Sort*: Menjaga *array* Barang terurut secara *Ascending* berdasarkan ID.
-  * *Selection Sort*: Digunakan saat user ingin menampilkan daftar barang secara *Descending* berdasarkan jumlah stok terbanyak.
-* **Standar Kode Tambahan:**
-  * [cite_start]Algoritma **Rekursif** diimplementasikan pada kalkulasi total pendapatan sebagai nilai tambahan kreativitas aplikasi[cite: 17, 41].
-  * [cite_start]Tidak menggunakan *statement* `break` atau `continue` dalam perulangan apa pun[cite: 42].
-  * [cite_start]Penggunaan variabel global dibatasi secara ketat hanya untuk *array* data utama[cite: 43].
+## ✨ Fitur Utama Aplikasi
+
+1. **Manajemen Katalog Barang (CRUD)**
+   * **Tambah Barang:** Menambahkan produk baru (ID, Nama, Harga, Stok) ke dalam sistem. Setelah ditambahkan, data otomatis diurutkan agar siap dicari kapan saja.
+   * **Ubah Barang (Edit):** Memperbarui informasi nama, harga, atau stok barang yang sudah terdaftar berdasarkan ID uniknya.
+   * **Hapus Barang (Delete):** Menghapus produk dari katalog dengan mekanisme pergeseran elemen array statis untuk menjaga kontinuitas data.
+
+2. **Sistem Antrean & Persetujuan Transaksi (Approval System)**
+   * **Buat Transaksi:** Pembeli dapat melakukan pemesanan dengan memasukkan ID Barang dan jumlah kuantitas. Transaksi yang baru dibuat akan masuk ke dalam antrean dengan status *Menunggu Persetujuan*.
+   * **Persetujuan Transaksi (Approve):** Admin dapat menyetujui transaksi yang menggantung. Sistem akan secara otomatis memeriksa ketersediaan stok di gudang. Jika stok mencukupi, status transaksi berubah menjadi *Disetujui* dan stok barang akan berkurang secara otomatis.
+
+3. **Kalkulasi Finansial Otomatis**
+   * **Hitung Omzet Toko:** Menghitung total seluruh pendapatan yang diperoleh hanya dari transaksi-transaksi yang telah disetujui (Approved) oleh admin.
+
+4. **Visualisasi Data Terurut**
+   * Menampilkan katalog barang dengan dua pilihan mode pengurutan dinamis: berdasarkan ID secara membesar (*Ascending*) atau berdasarkan sisa stok secara mengecil (*Descending*).
+
+---
+
+## 🛠️ Keselarasan Materi Perkuliahan (ALPRO)
+
+Aplikasi ini dibangun murni menggunakan konsep-konsep dasar yang diajarkan dari Pekan 02 hingga Pekan 12:
+
+* **Pekan 02 & 03 (Function & Procedure):** Pemisahan modular yang tegas. Subprogram pencarian dan kalkulasi diimplementasikan sebagai `Function` (mengembalikan nilai), sedangkan operasi CRUD, pengurutan, dan manajemen antrean menggunakan `Procedure` dengan manipulasi data langsung menggunakan *pointer passing* (`*`).
+* **Pekan 04 (Rekursif - Nilai Tambah):** Perhitungan total omzet toko diselesaikan menggunakan fungsi rekursif murni (`hitungPendapatanRekursif`) tanpa menggunakan perulangan konvensional, yang memenuhi komponen nilai kreativitas tambahan pada tugas besar.
+* **Pekan 05 (Tipe Bentukan dan Array):** Seluruh data diikat menggunakan tipe bentukan `struct` (`Barang` dan `Transaksi`) dan disimpan di dalam Array statis berkapasitas tetap (`[100]`), tanpa memanfaatkan *slice* atau fungsi dinamis bawaan Go.
+* **Pekan 06 (Pencarian Nilai Ekstrem):** Logika pencarian nilai maksimum diintegrasikan di dalam algoritma pengurutan untuk menentukan barang dengan stok terbesar pada setiap tahapan iterasi.
+* **Pekan 09 (Sequential Search):** Digunakan untuk mencari data transaksi berdasarkan ID secara linear pada fitur persetujuan admin.
+* **Pekan 10 (Binary Search):** Digunakan untuk mencari data barang secara efisien dengan kompleksitas $O(\log n)$. Algoritma ini berjalan menggunakan kontrol logika boolean konjungsi murni tanpa melibatkan statemen *break*.
+* **Pekan 11 (Selection Sort):** Digunakan untuk menyusun daftar barang secara menurun (*Descending*) berdasarkan jumlah stok terkini.
+* **Pekan 12 (Insertion Sort):** Digunakan untuk menyusun katalog barang secara menaik (*Ascending*) berdasarkan ID Barang guna menjamin kevalidan prasyarat algoritma *Binary Search*.
+
+⚠️ **Kepatuhan Aturan Ketat:** Kode program ini **sama sekali tidak menggunakan** statemen keyword `break` maupun `continue` di dalam seluruh struktur perulangan yang ada.
+
+---
 
 ## 🚀 Cara Menjalankan Program
-1. Pastikan Anda sudah menginstal **Go (Golang)** di komputer Anda.
-2. *Clone* repository ini ke lokal mesin Anda, atau unduh langsung file `main.go`.
-3. Buka *Terminal* atau *Command Prompt*, dan arahkan direktori ke lokasi file `main.go`.
-4. Jalankan perintah kompilasi berikut:
+
+1. Pastikan perangkat Anda telah terinstal compiler **Go (Golang)**.
+2. Unduh atau clone repository ini, lalu masuk ke direktori proyek.
+3. Jalankan perintah berikut pada Terminal / Command Prompt Anda:
    ```bash
    go run main.go
