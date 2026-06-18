@@ -36,7 +36,7 @@ var nBarang int
 var dataTransaksi ArrTransaksi
 var nTransaksi int
 
-// function binary search
+// function binary search untuk mencari indeks data barang dalam array secara cepat menggunakan metode pencarian biner.
 func binarySearchBarang(T ArrBarang, n int, idCari int) int {
 	var kiri, kanan, tengah, ketemu int
 	kiri = 0
@@ -56,7 +56,7 @@ func binarySearchBarang(T ArrBarang, n int, idCari int) int {
 	return ketemu
 }
 
-// function sequential search
+// function sequential search untuk mencari indeks transaksi dalam array secara berurutan atau sekuensial dari awal sampai akhir.
 func seqSearchTransaksi(T ArrTransaksi, n int, idCari int) int {
 	var i, ketemu int
 	ketemu = -1
@@ -71,7 +71,7 @@ func seqSearchTransaksi(T ArrTransaksi, n int, idCari int) int {
 	return ketemu
 }
 
-// function rekursif
+// function rekursif untuk menghitung total pendapatan atau omzet penjualan dari transaksi yang sudah berhasil disetujui oleh admin.
 func hitungPendapatanRekursif(T ArrTransaksi, n int, i int) int {
 	if i >= n {
 		return 0
@@ -82,7 +82,7 @@ func hitungPendapatanRekursif(T ArrTransaksi, n int, i int) int {
 	return hitungPendapatanRekursif(T, n, i+1)
 }
 
-// procedure insertion sort
+// procedure insertion sort untuk mengurutkan daftar barang secara ascending atau menaik berdasarkan nomor ID barang secara teratur.
 func insertionSortBarangByID(T *ArrBarang, n int) {
 	var i, j int
 	var temp Barang
@@ -98,7 +98,7 @@ func insertionSortBarangByID(T *ArrBarang, n int) {
 	}
 }
 
-// procedure selection sort & extreme value search
+// procedure selection sort & extreme value search untuk mengurutkan barang secara descending berdasarkan jumlah stok terbanyak.
 func selectionSortBarangByStokDesc(T *ArrBarang, n int) {
 	var i, j, idxMax int
 	var temp Barang
@@ -116,7 +116,7 @@ func selectionSortBarangByStokDesc(T *ArrBarang, n int) {
 	}
 }
 
-// procedure buat nambah barang
+// procedure buat nambah barang baru ke dalam daftar array barang toko online jika kapasitas array belum penuh.
 func tambahBarang(T *ArrBarang, n *int) {
 	var b Barang
 	if *n < MAX {
@@ -139,7 +139,7 @@ func tambahBarang(T *ArrBarang, n *int) {
 	}
 }
 
-// procedure edit nambah barang
+// procedure edit data barang yang sudah ada untuk memperbarui nama, harga, dan stok barang berdasarkan ID tertentu.
 func editBarang(T *ArrBarang, n int) {
 	var idCari, idx int
 	fmt.Print("Masukkan ID Barang yang akan diubah: ")
@@ -159,7 +159,7 @@ func editBarang(T *ArrBarang, n int) {
 	}
 }
 
-// procedure buat hapus barang
+// procedure buat hapus barang dari daftar array dengan menggeser posisi elemen setelah indeks barang yang dihapus tersebut.
 func hapusBarang(T *ArrBarang, n *int) {
 	var idCari, idx, i int
 	fmt.Print("Masukkan ID Barang yang akan dihapus: ")
@@ -177,7 +177,7 @@ func hapusBarang(T *ArrBarang, n *int) {
 	}
 }
 
-// procedure buat nampilin barang
+// procedure buat nampilin barang ke layar dengan pilihan pengurutan berdasarkan ID menaik atau jumlah stok menurun.
 func tampilBarang(T *ArrBarang, n int) {
 	var pil, i int
 	fmt.Println("\nPilih Kriteria Penampilan Data:")
@@ -203,7 +203,7 @@ func tampilBarang(T *ArrBarang, n int) {
 	}
 }
 
-// prodecude tambah transaksi
+// procedure tambah transaksi baru untuk mencatat pemesanan barang oleh pembeli dan menambahkannya ke dalam antrean transaksi yang tersedia di sistem toko.
 func tambahTransaksi(TTrans *ArrTransaksi, nTrans *int, TBar ArrBarang, nBar int) {
 	var t Transaksi
 	var idxBarang int
@@ -235,7 +235,7 @@ func tambahTransaksi(TTrans *ArrTransaksi, nTrans *int, TBar ArrBarang, nBar int
 	}
 }
 
-// prodecude approve transaksi
+// procedure approve transaksi untuk menyetujui pembelian barang sekaligus mengurangi jumlah stok barang di toko secara otomatis.
 func setujuiTransaksi(TTrans *ArrTransaksi, nTrans int, TBar *ArrBarang, nBar int) {
 	var idCari, idxTrans, idxBarang int
 	fmt.Print("Masukkan ID Transaksi untuk di-Approve: ")
@@ -262,7 +262,7 @@ func setujuiTransaksi(TTrans *ArrTransaksi, nTrans int, TBar *ArrBarang, nBar in
 	}
 }
 
-// prodecude nampilin transaksi
+// procedure nampilin transaksi ke layar untuk melihat status persetujuan dan rincian lengkap dari riwayat seluruh transaksi.
 func tampilTransaksi(TTrans ArrTransaksi, nTrans int) {
 	var i int
 	var status string
@@ -280,7 +280,7 @@ func tampilTransaksi(TTrans ArrTransaksi, nTrans int) {
 	fmt.Println("--------------------------------------------------------")
 }
 
-// prodecude cek total pendapatan
+// procedure cek total pendapatan dengan memanggil fungsi rekursif untuk menjumlahkan semua transaksi yang berstatus telah disetujui.
 func cetakTotalPendapatan(TTrans ArrTransaksi, nTrans int) {
 	var total int
 	// Pemanggilan Fungsi Rekursif (Materi Pekan 04)
@@ -288,13 +288,13 @@ func cetakTotalPendapatan(TTrans ArrTransaksi, nTrans int) {
 	fmt.Printf("\n>> Total Pendapatan dari Transaksi yang Disetujui: Rp%d\n", total)
 }
 
-// program utama
+// program utama untuk menginisialisasi data dummy awal dan menjalankan menu interaktif aplikasi toko online secara berulang.
 func main() {
 	var berjalan bool
 	var pilihan int
 
 	// data dummy
-	
+
 	// data barang terurut by ID
 	dataBarang[0] = Barang{ID: 101, Nama: "Kemeja_Flanel", Harga: 150000, Stok: 20}
 	dataBarang[1] = Barang{ID: 102, Nama: "Celana_Chino", Harga: 180000, Stok: 15}
@@ -307,7 +307,6 @@ func main() {
 	dataTransaksi[1] = Transaksi{ID: 2, IDBarang: 103, Pembeli: "Budi", Jumlah: 3, Total: 150000, Disetujui: false}
 	dataTransaksi[2] = Transaksi{ID: 3, IDBarang: 104, Pembeli: "Citra", Jumlah: 1, Total: 250000, Disetujui: false}
 	nTransaksi = 3
-
 
 	berjalan = true
 
